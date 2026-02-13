@@ -236,17 +236,58 @@
       color: var(--charcoal);
     }
 
-    /* About Section */
-    .about-content {
-      max-width: 800px;
-      margin: 0 auto;
-      font-size: 1.1rem;
-      line-height: 1.9;
-    }
+    /* About Section - Two Column Layout */
+.about-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: var(--spacing-6);
+  align-items: center;
+}
 
-    .about-text {
-      margin-bottom: 1.5rem;
-    }
+.about-text-content {
+  max-width: 650px;
+}
+
+.about-text-content h2 {
+  margin-bottom: var(--spacing-3);
+}
+
+.about-text {
+  margin-bottom: 1.5rem;
+  font-size: 1.1rem;
+  line-height: 1.9;
+}
+
+.about-image {
+  position: relative;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  transition: var(--transition);
+}
+
+.about-image:hover {
+  transform: scale(1.02);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+}
+
+.about-team-image {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .about-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .about-text-content h2 {
+    text-align: center;
+  }
+}
 
     /* Portfolio Carousel - New Implementation */
     .portfolio {
@@ -740,15 +781,20 @@
   </section>
 
   <!-- About Section -->
-  <section id="about" class="section about">
-    <div class="container">
-      <div class="about-content">
+<section id="about" class="section about">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-text-content">
         <h2 class="section-title">Meet Mel, Your Local Stylist</h2>
         <p class="about-text">Born and raised on the Central Coast, I've spent over a decade transforming spaces with a deep understanding of what resonates here. From Avoca to Woy Woy, I blend local insight with refined design to create spaces that sell faster and feel like home.</p>
         <p class="about-text">My approach is simple: reduce stress, maximize value, and honor the coastal lifestyle you love. No cookie-cutter solutions – just authentic spaces that reflect your story.</p>
       </div>
+      <div class="about-image">
+        <img src="team.jpg" alt="Mel - Form Property Styling Founder" class="about-team-image">
+      </div>
     </div>
-  </section>
+  </div>
+</section>
 
   <!-- Portfolio Section - Updated with Carousel -->
   <section id="portfolio" class="section portfolio">
